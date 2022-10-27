@@ -1,7 +1,11 @@
-import { io } from "socket.io-client";
+import { Manager } from "socket.io-client";
 
 const URL = "http://localhost:8080";
-const socket = io(URL, { autoConnect: false });
+
+const manager = new Manager(URL)
+
+const socket = manager.socket()
+
 
 socket.onAny((event, ...args) => {
   console.log(event, args);

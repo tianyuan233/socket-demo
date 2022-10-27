@@ -1,6 +1,6 @@
 const httpServer = require("http").createServer()
 const Redis = require("ioredis")
-const redisClient = new Redis('redis://default:redispw@localhost:49153')
+const redisClient = new Redis('redis://default:redispw@localhost:49154')
 const io = require("socket.io")(httpServer,{
   cors: {
     origin: "http://127.0.0.1:5173",
@@ -9,6 +9,8 @@ const io = require("socket.io")(httpServer,{
     pubClient: redisClient,
     subClient: redisClient.duplicate(),
   }),
+  pingInterval: 10000,
+  pingTimeout: 10000
 })
 
 const crypto = require("crypto");

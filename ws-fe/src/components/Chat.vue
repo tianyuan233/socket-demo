@@ -47,7 +47,7 @@ const initSocket = () => {
   });
 
   socket.on("disconnect", () => {
-    this.users.forEach((user) => {
+    users.value.forEach((user) => {
       if (user.self) {
         user.connected = false;
       }
