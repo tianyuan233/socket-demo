@@ -113,7 +113,6 @@ io.on("connection", async (socket) => {
       // notify other users
       socket.broadcast.emit("user disconnected", socket.userID);
       // update the connection status of the session
-      console.log(socket.sessionID)
       sessionStore.saveSession(socket.sessionID, {
         userID: socket.userID,
         username: socket.username,
