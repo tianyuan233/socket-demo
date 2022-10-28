@@ -94,7 +94,7 @@ const initSocket = () => {
       }
     }
     initReactiveProperties(user);
-    this.users.push(user);
+    users.value.push(user);
   });
 
   socket.on("user disconnected", (id) => {

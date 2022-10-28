@@ -1,9 +1,10 @@
 const httpServer = require("http").createServer()
 const Redis = require("ioredis")
-const redisClient = new Redis('redis://default:redispw@localhost:49154')
+const redisClient = new Redis('redis://default:redispw@localhost:49155')
 const io = require("socket.io")(httpServer,{
   cors: {
-    origin: "http://127.0.0.1:5173",
+    origin: ["http://127.0.0.1:5173","https://admin.socket.io"],
+    credentials: true
   },
   adapter: require("socket.io-redis")({
     pubClient: redisClient,
